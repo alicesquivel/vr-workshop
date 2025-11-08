@@ -1,4 +1,4 @@
-# 🎮 TigerHacks VR Workshop
+# 🎮 TigerHacks VR Workshop 🐯
 
 This repository contains the slides and resources from the **VR Workshop at TigerHacks 2025 (University of Missouri)**.
 
@@ -62,11 +62,6 @@ You can view or download the slides here:
 | Topic | Link |
 |-------|------|
 | Unity VR Beginner Pathway | https://learn.unity.com/ |
-| XR Interaction Toolkit Docs | https://docs.unity3d.com/Packages/com.unity.xr.interaction.toolkit |
 | Meta Quest + Unity Setup | https://developer.oculus.com/documentation/unity/ |
-| OpenXR Unity Overview | https://docs.unity3d.com/Manual/com.unity.openxr |
 
 ---
-
-## 📁 Suggested Folder Structure
-
