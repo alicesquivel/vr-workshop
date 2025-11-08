@@ -65,3 +65,14 @@ You can view or download the slides here:
 | Meta Quest + Unity Setup | https://developer.oculus.com/documentation/unity/ |
 
 ---
+
+## 📬 Want to Learn More or Continue Building VR?
+
+If you are interested in learning more about VR development, Unity, research opportunities, or continuing this project, feel free to reach out:
+
+**Alicia Esquivel Morel**  
+Graduate Instructor, Engineering & Information Technology  
+University of Missouri  
+Office: E2437B Lafferre Hall  
+Email: ace6qv@missouri.edu
+
