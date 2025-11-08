@@ -1,0 +1,197 @@
+0) Prerequisites
+
+Unity 2022.3 LTS or 2023.3 LTS
+
+A project created with the 3D or 3D URP template
+
+Target device: Quest 2 or Quest 3, or run in Play Mode with the XR Device Simulator
+
+1) Install required packages
+
+Open Window > Package Manager.
+
+In the Packages dropdown, choose Unity Registry.
+
+Install these packages:
+
+XR Interaction Toolkit
+
+XR Plugin Management
+
+OpenXR Plugin
+
+Input System
+
+When prompted by XR Interaction Toolkit to enable the new Input System, click Yes and let Unity restart.
+
+2) Enable OpenXR and the correct controller profiles
+
+Open Edit > Project Settings > XR Plug-in Management.
+
+In the PC, Mac & Linux Standalone tab and the Android tab:
+
+Check OpenXR.
+
+Still in Project Settings, go to XR Plug-in Management > OpenXR.
+
+In Features, enable the controller profile you will use. For Quest, enable Oculus Touch Controller Profile or Meta Quest Touch Controller Profile.
+
+Also enable Hand Tracking features only if you plan to use hands.
+
+If you see validation issues, click Fix All.
+
+3) Ensure Input System is active
+
+Edit > Project Settings > Player > Other Settings.
+
+Active Input Handling should be set to Input System Package (New) or Both.
+
+4) Add an XR rig to your scene
+
+Option A - Starter Assets
+
+Go to Window > Package Manager > XR Interaction Toolkit.
+
+Expand Samples and import Starter Assets and XR Device Simulator.
+
+In your Scene, add:
+
+GameObject > XR > XR Origin (XR Rig).
+
+If you do not see this menu, right-click Hierarchy > XR > XR Origin.
+
+Add the XR Interaction Manager:
+
+GameObject > XR > XR Interaction Manager.
+
+Optional for keyboard and mouse testing:
+
+Add GameObject > XR > XR Device Simulator. This lets you test grab with mouse and keyboard in Play Mode.
+
+Option B - Action-based controller prefabs
+
+If the sample includes Action Based Controller prefabs, you can use them. Otherwise, XR Origin already includes Left and Right controller GameObjects with interactor components.
+
+5) Verify interactors on the controllers
+
+Expand XR Origin in the Hierarchy.
+
+You should see LeftHand Controller and RightHand Controller or similar.
+
+Each should have:
+
+XR Ray Interactor and/or XR Direct Interactor
+
+XR Controller (Action-based)
+
+Line Renderer on hands that use rays
+
+For direct grabbing with your hands, ensure at least one of the controllers has an XR Direct Interactor. This is the interactor that physically touches and grabs objects.
+
+6) Create your grabbable object
+
+GameObject > 3D Object > Cube or Sphere. Rename to GrabbableBall or GrabbableBook.
+
+With the object selected, add components:
+
+Rigidbody
+
+Use Gravity = On
+
+Is Kinematic = Off
+
+Collision Detection = Continuous is safer for fast throws
+
+Collider
+
+Box Collider, Sphere Collider, or Mesh Collider. Keep it non-trigger for normal physics.
+
+XR Grab Interactable
+
+In XR Grab Interactable:
+
+Movement Type = Velocity Tracking for natural physics feel
+
+Track Position = On
+
+Track Rotation = On
+
+Throw on Detach = On
+
+Select Mode = Single
+
+Press Play. Move a controller near the object. Squeeze the Grab action on your controller to pick it up. Release to drop or throw.
+
+7) Align how it sits in your hand (Attach Transform)
+
+Create an empty child under the grabbable object. Name it AttachPoint.
+
+Position and rotate AttachPoint so the object would look correct in the hand when grabbed.
+
+In XR Grab Interactable, set Attach Transform to the AttachPoint you created.
+
+Test again until the grip looks natural.
+
+8) Fine-tune grab behavior
+
+Movement Type:
+
+Kinematic: snaps and follows exactly, less physical
+
+Velocity Tracking: follows with physics, best for throwing
+
+Instantaneous: follows exactly every frame, can feel sticky
+
+Smooth Position and Smooth Rotation: increase for less jitter when following the hand.
+
+Retain Transform Parent: Off for most cases.
+
+Interaction Layer Mask: keep Default unless you need custom layers.
+
+9) Physics settings for better throws
+
+Edit > Project Settings > Physics.
+
+Increase Default Solver Iterations to 12 and Default Solver Velocity Iterations to 12 for more stable interactions.
+
+Ensure your grabbable Rigidbody mass is realistic. Example: 0.2 kg to 1 kg for handheld items.
+
+Avoid extremely small or extremely large scales.
+
+10) Optional: add a socket to snap the object into place
+
+Create an empty GameObject where you want the item to dock. Name it ItemSocket.
+
+Add XR Socket Interactor to that object.
+
+On the socket:
+
+Interaction Layer Mask should match your grabbable’s layer if you use layers.
+
+Add a simple visual like a small cylinder or outline to see where it is.
+
+On the grabbable object:
+
+In XR Grab Interactable, set a Collider that fits well.
+
+Play Mode test:
+
+Grab the object, move it into the socket area. Release. It should latch into place.
+
+If it does not snap, ensure the socket’s Filter or Allowed Interactables are not blocking your object. You can use the socket’s “Interactable Filters” to restrict which items fit.
+
+11) Test without a headset using XR Device Simulator
+
+Ensure XR Device Simulator is in the scene.
+
+Press Play.
+
+Controls typical defaults:
+
+Press and hold right mouse button to look around.
+
+Shift to move the head rig.
+
+Use keyboard shortcuts shown in the Simulator overlay to switch to left or right hand, move the hands, and simulate the grab action.
+
+Move the simulated hand onto the object and press the grab key to test.
