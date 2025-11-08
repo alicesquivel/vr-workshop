@@ -1,4 +1,4 @@
-# 🎮 TigerHacks VR Workshop 🐯
+# 🎮 TigerHacks Mini VR Workshop 🐯
 
 This repository contains the slides and resources from the **VR Workshop at TigerHacks 2025 (University of Missouri)**.
 
