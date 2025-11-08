@@ -23,9 +23,9 @@ You can view or download the slides here:
 ## 🛠 Setup Instructions (Follow-Along During Workshop)
 
 ### ✅ Requirements:
-- **Unity 2022.3 LTS or newer**
-- **Meta Quest 2 or Quest 3**
-- **Windows PC + Oculus Link or Air Link**
+- **Unity 2022.3 LTS **
+- **Meta Quest 3**
+- **Windows PC + Oculus Link**
 - Unity Hub installed
 
 ### ✅ Create a New VR Project:
